@@ -1,12 +1,8 @@
 class Solution {
     public boolean isPalindrome(String s) {
-        StringBuilder sb = new StringBuilder();
-        for(char a:s.toCharArray()) {
-            if(Character.isLetterOrDigit(a)) {
-                sb.append(Character.toLowerCase(a));
-            }
-        }
-        s= sb.toString();
+        s = s.replaceAll("[^a-zA-Z0-9]", "");
+        s = s.toLowerCase();
+        System.out.println(s);
         int i = 0;
         int j = s.length()-1;
         while (i!=s.length()/2) {
@@ -18,6 +14,6 @@ class Solution {
             j--;
         }
         System.out.println(true);
-        return true;    
+        return true;
     }
 }
