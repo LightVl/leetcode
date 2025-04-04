@@ -8,7 +8,7 @@ class Solution {
         int i;
         finish:
         for(i=0;i<intervals.length-1;i++) {
-            while (secondNum >= intervals[i + 1][0] && i<intervals.length-1) {
+            while (secondNum >= intervals[i + 1][0]) {
                 secondNum = (secondNum > intervals[i + 1][1]) ? secondNum : intervals[i + 1][1];
                 i++;
                 if (i== intervals.length-1)
