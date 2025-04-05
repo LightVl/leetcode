@@ -1,9 +1,9 @@
 class Solution {
     public String simplifyPath(String path) {
-        String oneSlashPath = path.replaceAll("/+","/");
+        //String oneSlashPath = path.replaceAll("/+","/");
         Stack<String> stack = new Stack<>();
-        System.out.println(oneSlashPath);
-        String[] splitted = oneSlashPath.split("/",0);
+        //System.out.println(oneSlashPath);
+        String[] splitted = path.split("/",0);
         System.out.println(Arrays.toString(splitted));
         StringBuilder result = new StringBuilder();
         for (String c : splitted) {
