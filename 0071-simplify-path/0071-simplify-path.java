@@ -23,7 +23,6 @@ class Solution {
             result.append("/");
             result.append(a);
         }
-        System.out.println(result.toString());
         return result.toString();  
     }
 }
