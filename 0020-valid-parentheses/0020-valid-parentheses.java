@@ -9,38 +9,23 @@ class Solution {
                     stack.push(c);
                     break;
                 case ')':
-                    if(stack.empty()) {
-                        System.out.println(false);
-                        return false;
-                    }
-                    else if (stack.peek() == '(') {
+                    if (!stack.isEmpty()&&stack.peek() == '(') {
                         stack.pop();
                     } else {
-                        System.out.println(false);
                         return false;
                     }
                     break;
                 case ']':
-                    if(stack.empty()) {
-                        System.out.println(false);
-                        return false;
-                    }
-                    else if (stack.peek() == '[') {
+                    if (!stack.isEmpty()&&stack.peek() == '[') {
                         stack.pop();
                     } else {
-                        System.out.println(false);
                         return false;
                     }
                     break;
                 case '}':
-                    if(stack.empty()) {
-                        System.out.println(false);
-                        return false;
-                    }
-                    else if (stack.peek() == '{') {
+                    if (!stack.isEmpty()&&stack.peek() == '{') {
                         stack.pop();
                     } else {
-                        System.out.println(false);
                         return false;
                     }
                     break;
@@ -49,11 +34,6 @@ class Solution {
                     return false;
             }
         }
-        if (stack.empty()) {
-            System.out.println(true);
-            return true;
-        } else {
-            return false;
-        }    
+        return stack.isEmpty();  
     }
 }
