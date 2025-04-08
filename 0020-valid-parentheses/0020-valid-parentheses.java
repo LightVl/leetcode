@@ -6,28 +6,15 @@ class Solution {
             if (c == dataList.get(0) || c == dataList.get(1) || c == dataList.get(2)) {
                 stack.push(c);
             }
-            if (c == dataList.get(3)) {
-                if (!stack.isEmpty() && stack.peek() == dataList.get(0)) {
-                    stack.pop();
-                } else {
-                    return false;
+            for (int i = 0; i < 3; i++) {
+                if (c == dataList.get(3 + i)) {
+                    if (!stack.isEmpty() && stack.peek() == dataList.get(i)) {
+                        stack.pop();
+                    } else {
+                        return false;
+                    }
                 }
             }
-            if (c == dataList.get(4)) {
-                if (!stack.isEmpty() && stack.peek() == dataList.get(1)) {
-                    stack.pop();
-                } else {
-                    return false;
-                }
-            }
-            if (c == dataList.get(5)) {
-                if (!stack.isEmpty() && stack.peek() == dataList.get(2)) {
-                    stack.pop();
-                } else {
-                    return false;
-                }
-            }
-
         }
         return stack.isEmpty();
     }
