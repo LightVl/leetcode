@@ -15,28 +15,12 @@ class Solution {
         Calc calc = new Calc(0, false);
         while (l1.next != null && l2.next != null) {
             calc = count(l1.val, l2.val, calc.perenos);
-            /*result = l1.val + l2.val;
-            if (perenos)
-                result++;
-            if (result > 9) {
-                perenos = true;
-                result = result % 10;
-            } else
-                perenos = false;*/
             current.next = new ListNode(calc.result);
             current = current.next;
             l1 = l1.next;
             l2 = l2.next;
         }
         calc = count(l1.val, l2.val, calc.perenos);
-        /*result = l1.val + l2.val;
-        if (perenos)
-            result++;
-        if (result > 9) {
-            perenos = true;
-            result = result % 10;
-        } else
-            perenos = false;*/
         current.next = new ListNode(calc.result);
         current = current.next;
         if (calc.perenos && l1.next == null && l2.next == null)
@@ -45,14 +29,6 @@ class Solution {
             while (l1.next != null) {
                 l1 = l1.next;
                 calc = count(l1.val, 0, calc.perenos);
-                /*result = l1.val;
-                if (perenos)
-                    result++;
-                if (result > 9) {
-                    perenos = true;
-                    result = result % 10;
-                } else
-                    perenos = false;*/
                 current.next = new ListNode(calc.result);
                 current = current.next;
             }
@@ -63,14 +39,6 @@ class Solution {
             while (l2.next != null) {
                 l2 = l2.next;
                 calc = count(0, l2.val, calc.perenos);
-                /*result = l2.val;
-                if (perenos)
-                    result++;
-                if (result > 9) {
-                    perenos = true;
-                    result = result % 10;
-                } else
-                    perenos = false;*/
                 current.next = new ListNode(calc.result);
                 current = current.next;
             }
@@ -78,10 +46,6 @@ class Solution {
                 current.next = new ListNode(1);
         }
         return dummyHead.next;
-
-        //System.out.println(dummyHead.next.val);
-       //System.out.println(dummyHead.next.next.val);
-        //System.out.println(dummyHead.next.next.next.val);
     }
 
     public record Calc(int result, boolean perenos) {
