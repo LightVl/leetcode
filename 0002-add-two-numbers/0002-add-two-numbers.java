@@ -12,23 +12,83 @@ class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode dummyHead = new ListNode(0);
         ListNode current = dummyHead;
-        boolean perenos = false;
-        int result = 0;
+        Calc calc = new Calc(0, false);
         while (l1.next != null && l2.next != null) {
-            result = l1.val + l2.val;
+            calc = count(l1.val, l2.val, calc.perenos);
+            /*result = l1.val + l2.val;
             if (perenos)
                 result++;
             if (result > 9) {
                 perenos = true;
                 result = result % 10;
             } else
-                perenos = false;
-            current.next = new ListNode(result);
+                perenos = false;*/
+            current.next = new ListNode(calc.result);
             current = current.next;
             l1 = l1.next;
             l2 = l2.next;
         }
-        result = l1.val + l2.val;
+        calc = count(l1.val, l2.val, calc.perenos);
+        /*result = l1.val + l2.val;
+        if (perenos)
+            result++;
+        if (result > 9) {
+            perenos = true;
+            result = result % 10;
+        } else
+            perenos = false;*/
+        current.next = new ListNode(calc.result);
+        current = current.next;
+        if (calc.perenos && l1.next == null && l2.next == null)
+            current.next = new ListNode(1);
+        if (l1.next != null) {
+            while (l1.next != null) {
+                l1 = l1.next;
+                calc = count(l1.val, 0, calc.perenos);
+                /*result = l1.val;
+                if (perenos)
+                    result++;
+                if (result > 9) {
+                    perenos = true;
+                    result = result % 10;
+                } else
+                    perenos = false;*/
+                current.next = new ListNode(calc.result);
+                current = current.next;
+            }
+            if (calc.perenos)
+                current.next = new ListNode(1);
+        }
+        if (l2.next != null) {
+            while (l2.next != null) {
+                l2 = l2.next;
+                calc = count(0, l2.val, calc.perenos);
+                /*result = l2.val;
+                if (perenos)
+                    result++;
+                if (result > 9) {
+                    perenos = true;
+                    result = result % 10;
+                } else
+                    perenos = false;*/
+                current.next = new ListNode(calc.result);
+                current = current.next;
+            }
+            if (calc.perenos)
+                current.next = new ListNode(1);
+        }
+        return dummyHead.next;
+
+        //System.out.println(dummyHead.next.val);
+       //System.out.println(dummyHead.next.next.val);
+        //System.out.println(dummyHead.next.next.next.val);
+    }
+
+    public record Calc(int result, boolean perenos) {
+    }
+
+    public static Calc count(int n1, int n2, boolean perenos) {
+        int result = n1 + n2;
         if (perenos)
             result++;
         if (result > 9) {
@@ -36,45 +96,6 @@ class Solution {
             result = result % 10;
         } else
             perenos = false;
-        current.next = new ListNode(result);
-        current = current.next;
-        if (perenos && l1.next == null && l2.next == null)
-            current.next = new ListNode(1);
-        if (l1.next != null) {
-            while (l1.next != null) {
-                l1 = l1.next;
-
-                result = l1.val;
-                if (perenos)
-                    result++;
-                if (result > 9) {
-                    perenos = true;
-                    result = result % 10;
-                } else
-                    perenos = false;
-                current.next = new ListNode(result);
-                current = current.next;
-            }
-            if (perenos)
-                current.next = new ListNode(1);
-        }
-        if (l2.next != null) {
-            while (l2.next != null) {
-                l2 = l2.next;
-                result = l2.val;
-                if (perenos)
-                    result++;
-                if (result > 9) {
-                    perenos = true;
-                    result = result % 10;
-                } else
-                    perenos = false;
-                current.next = new ListNode(result);
-                current = current.next;
-            }
-            if (perenos)
-                current.next = new ListNode(1);
-        }
-        return dummyHead.next;
+        return new Calc(result, perenos);
     }
 }
