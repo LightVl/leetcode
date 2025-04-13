@@ -15,9 +15,8 @@
  */
 class Solution {
     public TreeNode invertTree(TreeNode root) {
-        TreeNode resultRoot = root;
         invert(root);
-        return resultRoot;          
+        return root;          
     }
     public void invert(TreeNode root) {
         if (root == null) {
