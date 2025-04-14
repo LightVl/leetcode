@@ -18,9 +18,6 @@ class Solution {
         ArrayList<Integer> list = new ArrayList<>();
         preOrder(root, list);
         Collections.sort(list);
-        //int answer = 100000;
-        //for (int i = 1; i < list.size(); i++)
-            //answer = Math.min(answer, list.get(i) - list.get(i - 1));
         return list.get(k-1);
     }
 
