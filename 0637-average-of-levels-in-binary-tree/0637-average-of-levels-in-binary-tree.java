@@ -15,27 +15,26 @@
  */
 class Solution {
     public List<Double> averageOfLevels(TreeNode root) {
-        List<Double> averages = new ArrayList<>(); // Stores the averages of each level
-        Deque<TreeNode> queue = new ArrayDeque<>(); // Queue for traversing the tree level by level
-        queue.offer(root); // Start with the root
-      
-        while (!queue.isEmpty()) {
-            int levelSize = queue.size(); // Number of nodes in the current level
-            long sum = 0; // Sum of values of nodes in the current level
-            // Iterate over all nodes in the current level
-            for (int i = 0; i < levelSize; ++i) {
-                TreeNode currentNode = queue.pollFirst(); // Get and remove the node from the queue
-                sum += currentNode.val; // Add the node's value to the sum
-                // Enqueue child nodes for the next level
-                if (currentNode.left != null) {
-                    queue.offer(currentNode.left);
+        List<Double> answer = new ArrayList<>();
+        Deque<TreeNode> queue = new ArrayDeque<>();
+        queue.offer(root);
+        double levelSize = 0;
+        double sum = 0;
+        while(!queue.isEmpty()) {
+            levelSize = queue.size();
+            for (int i=0;i<levelSize;i++) {
+                TreeNode currentNode = queue.poll();
+                sum = sum + currentNode.val;
+                if(currentNode.left !=null) {
+                    queue.offerLast(currentNode.left);
                 }
-                if (currentNode.right != null) {
-                    queue.offer(currentNode.right);
+                if(currentNode.right !=null) {
+                    queue.offerLast(currentNode.right);
                 }
             }
-            averages.add((double)sum / levelSize); // Compute and add the average for this level to the result
+            answer.add(sum/levelSize);
+            sum = 0;
         }
-        return averages; // Return the list of averages
+        return answer;    
     }    
 }
