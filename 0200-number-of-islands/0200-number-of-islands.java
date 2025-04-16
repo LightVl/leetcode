@@ -3,12 +3,9 @@ class Solution {
         int m = grid.length;
         int n = grid[0].length;
         int islands = 0;
-        List<coord> island = new ArrayList<>();
-        int i = 0;
-        int j = 0;
         //ищем острова
-        for (i = 0; i < m; i++) {
-            for (j = 0; j < n; j++) {
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
                 if (grid[i][j] == '1') {
                     islands++;
                     searchland(i, j, grid);
@@ -45,6 +42,5 @@ class Solution {
     }
 
     record coord(int x, int y) {
-
     }
 }
