@@ -43,6 +43,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0169-majority-element](https://github.com/LightVl/leetcode/tree/master/0169-majority-element) |
 | [0205-isomorphic-strings](https://github.com/LightVl/leetcode/tree/master/0205-isomorphic-strings) |
 | [0383-ransom-note](https://github.com/LightVl/leetcode/tree/master/0383-ransom-note) |
+| [0433-minimum-genetic-mutation](https://github.com/LightVl/leetcode/tree/master/0433-minimum-genetic-mutation) |
 ## Divide and Conquer
 |  |
 | ------- |
@@ -67,6 +68,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0205-isomorphic-strings](https://github.com/LightVl/leetcode/tree/master/0205-isomorphic-strings) |
 | [0383-ransom-note](https://github.com/LightVl/leetcode/tree/master/0383-ransom-note) |
 | [0392-is-subsequence](https://github.com/LightVl/leetcode/tree/master/0392-is-subsequence) |
+| [0433-minimum-genetic-mutation](https://github.com/LightVl/leetcode/tree/master/0433-minimum-genetic-mutation) |
 ## Dynamic Programming
 |  |
 | ------- |
@@ -144,6 +146,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0199-binary-tree-right-side-view](https://github.com/LightVl/leetcode/tree/master/0199-binary-tree-right-side-view) |
 | [0200-number-of-islands](https://github.com/LightVl/leetcode/tree/master/0200-number-of-islands) |
 | [0226-invert-binary-tree](https://github.com/LightVl/leetcode/tree/master/0226-invert-binary-tree) |
+| [0433-minimum-genetic-mutation](https://github.com/LightVl/leetcode/tree/master/0433-minimum-genetic-mutation) |
 | [0530-minimum-absolute-difference-in-bst](https://github.com/LightVl/leetcode/tree/master/0530-minimum-absolute-difference-in-bst) |
 | [0637-average-of-levels-in-binary-tree](https://github.com/LightVl/leetcode/tree/master/0637-average-of-levels-in-binary-tree) |
 ## Binary Tree
