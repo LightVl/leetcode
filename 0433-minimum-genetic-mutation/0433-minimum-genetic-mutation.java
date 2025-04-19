@@ -19,7 +19,6 @@ class Solution {
                 for(char b: mutationMap.get(queue.peek().gene.charAt(i)).toCharArray()) {
                     String newGene = queue.peek().gene.substring(0,i)+b+queue.peek().gene.substring(i+1);
                     if (mut.contains(newGene)) {
-                        System.out.println("===");
                         queue.offerFirst(new res(newGene,queue.peek().i+1));
                         mut.remove(newGene);
                         break next;
