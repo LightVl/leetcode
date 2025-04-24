@@ -89,11 +89,9 @@ public class solution {
                 tmp = tmp*(-1);
                 exp.set(i+1,String.valueOf(tmp));
                 exp.remove(i);
-                //i--;
             }
             if (Objects.equals(exp.get(i), "+")) {
                 exp.remove(i);
-                i--;
             }
         }
         tmp = 0;
