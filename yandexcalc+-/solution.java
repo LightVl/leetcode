@@ -51,7 +51,7 @@ public class solution {
         int bracketstart = 0;
         int bracketend = 0;
         int i;
-        int res;
+        Long res;
         for (i=0;i< exp.size();i++) {
             if (Objects.equals(exp.get(i), "(")) {
                 bracketstart = i;
@@ -80,24 +80,29 @@ public class solution {
         exp.set(bracketstart,String.valueOf(res));
         exp.subList(bracketstart+1,bracketend+1).clear();
     }
-    public static int calcwithoutbrackets(List<String> exp) {
-        Integer tmp;
+    public static Long calcwithoutbrackets(List<String> exp) {
+        Long tmp;
         for (int i=0;i<exp.size();i++) {
             //сначала решаем со всеми минусами
-            if (Objects.equals(exp.get(i), "-")) {
-                tmp = Integer.parseInt(exp.get(i+1));
-                tmp = tmp*(-1);
-                exp.set(i+1,String.valueOf(tmp));
-                exp.remove(i);
-            }
             if (Objects.equals(exp.get(i), "+")) {
                 exp.remove(i);
             }
+            if (Objects.equals(exp.get(i), "-")) {
+                if (!Objects.equals(exp.get(i + 1), "-")) {
+                    tmp = Long.parseLong(exp.get(i + 1));
+                    tmp = tmp * (-1);
+                    exp.set(i + 1, String.valueOf(tmp));
+                    exp.remove(i);
+                } else {
+                    exp.remove(i+1);
+                    exp.remove(i);
+                }
+            }
         }
-        tmp = 0;
+        tmp = 0L;
         //осталось сложить все слагаемые
         for (String a:exp) {
-            tmp = tmp + Integer.parseInt(a);
+            tmp = tmp + Long.parseLong(a);
         }
         return tmp;
     }
