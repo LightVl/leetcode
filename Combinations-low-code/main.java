@@ -10,13 +10,16 @@ public class Main {
         int n=5;
         int k=3;
         Combinations c = new Combinations(n,k);
-        List<int[]> al = new ArrayList<int[]>();
+        List<List<Integer>> al = new ArrayList<List<Integer>>();
         for(int[] iterate : c){
             for (int i=0;i<iterate.length;i++) {
                 iterate[i]=iterate[i]+1;
             }
-            al.add(iterate);
-            System.out.println(Arrays.toString(iterate));
+            List<Integer> integerList = Arrays.stream(iterate)
+                    .boxed()
+                    .toList();
+            al.add(integerList);
+            System.out.println(Arrays.toString(integerList.toArray()));
         }
     }
 }
