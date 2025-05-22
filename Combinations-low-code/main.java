@@ -7,6 +7,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
+        //Задача найти комбинации из n чисел длиной k
         int n=5;
         int k=3;
         Combinations c = new Combinations(n,k);
